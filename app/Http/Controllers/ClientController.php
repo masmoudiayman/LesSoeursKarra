@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
-    //
+    public function client()
+    {
+        return view('admin.client');
+    }
 }

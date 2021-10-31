@@ -11,10 +11,21 @@ class indexController extends Controller
         return view('client.home');
     }
 
-    public function magasin()
+    public function magasin_jus()
     {
-        return view('client.magasin');
+        return view('client.magasin_jus');
     }
+
+    public function magasin_café()
+    {
+        return view('client.magasin_café');
+    }
+
+    public function magasin_salé()
+    {
+        return view('client.magasin_salé');
+    }
+
 
     public function panier()
     {
@@ -34,5 +45,15 @@ class indexController extends Controller
     public function checkout()
     {
         return view('client.checkout');
+    }
+
+    public function login()
+    {
+        return view('client.login');
+    }
+
+    public function signup()
+    {
+        return view('client.signup');
     }
 }
