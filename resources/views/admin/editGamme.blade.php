@@ -29,18 +29,8 @@
             <!-- jquery validation -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Ajouter gamme</small></h3>
+                <h3 class="card-title">Modifier gamme</small></h3>
               </div>
-              
-              @if (Session::has('status'))
-              <div class="alert alert-success">
-                {{Session::get('status')}}
-                  
-
-              </div>
-                  
-              @endif
-
              @if (count($errors) > 0)
                   <div class="alert alert-danger" >
                     
@@ -58,25 +48,26 @@
               <!-- form start -->
               {{-- <form> --}}
                 {!!Form::open(['action'=>
-                'App\Http\Controllers\GammeController@saveGamme','method'=> 'POST'
+                'App\Http\Controllers\GammeController@updateGamme','method'=> 'POST'
                 ])!!}
                 <div class="card-body">
                   <div class="form-group">
+                    {{Form::hidden($gamme->id,'')}}
+
                     {{-- <label for="exampleInputEmail1">Nom</label> --}}
                     {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
-                    {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme'])}}
+                    {{Form::text('nom',$gamme->nom,['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme'])}}
                     {{-- <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer gamme"> --}}
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  {{Form::submit('Ajouter',['class'=>'btn btn-primary'])}}
+                  {{Form::submit('Modifier',['class'=>'btn btn-primary'])}}
 
                   <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                   {{-- <input type="submit" class="btn btn-primary" value="Ajouter" > --}}
                 </div>
                 {!!Form::close()!!}
-
               {{-- </form> --}}
             </div>
             <!-- /.card -->

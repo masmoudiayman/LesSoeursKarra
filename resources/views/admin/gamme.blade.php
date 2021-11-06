@@ -43,25 +43,16 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
+                    @foreach ($gammes as $gamme)
+                    <td>{{$gamme->id}}</td>
+                    <td>{{$gamme->nom}}</td>
                     <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                      <a href="{{url('/editGamme',$gamme->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                       <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                      <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
-                    </td>
-                  </tr>
+                    @endforeach
+                   
                   </tbody>
                 </table>
               </div>

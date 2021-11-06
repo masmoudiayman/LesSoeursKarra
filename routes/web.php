@@ -33,13 +33,20 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-
  Route::get('/ajouterGamme',[GammeController::class,'ajouterGamme']);
  Route::get('/ajouterSousGamme',[SousGammeController::class,'ajouterSousGamme']);
  Route::get('/ajouterArticle',[ArticleController::class,'ajouterArticle']);
 
 
+
+ Route::post('/saveGamme',[GammeController::class,'saveGamme']);
+ Route::post('/saveArticle',[ArticleController::class,'saveArticle']);
+
+
+
+
+ Route::get('/editGamme/{id}',[GammeController::class,'editGamme']);
+ Route::post('/updateGamme',[GammeController::class,'updateGamme']);
 
 
 

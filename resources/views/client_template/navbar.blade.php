@@ -53,7 +53,7 @@
 	          <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">À propos</a></li>
 	          <li class="nav-item active"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
 	          <li class="nav-item cta cta-colored"><a href="{{url('/panier')}}" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-              <li class="nav-item "><a href="login.html" class="nav-link"><span class="fa fa-user"></span>Connexion</a></li>
+              <li class="nav-item "><a href="login" class="nav-link"><span class="fa fa-user"></span>Connexion</a></li>
 
 
 	        </ul>

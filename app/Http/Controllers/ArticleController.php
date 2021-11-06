@@ -15,4 +15,9 @@ class ArticleController extends Controller
     {
         return view('admin.ajouterArticle');
     }
+
+    public function saveArticle( Request $request)
+    {
+        
+    }
 }

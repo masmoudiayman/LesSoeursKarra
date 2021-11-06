@@ -16,6 +16,5 @@ class Gamme extends Model
     protected  $attributes = [
         'id'=> false,
         'nom'=> false,
-        'description'=>false,
     ];
 }

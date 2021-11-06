@@ -15,8 +15,7 @@ class CreateGammesTable extends Migration
     {
         Schema::create('gammes', function (Blueprint $table) {
             $table->bigIncrements('id') ; 
-            $table->string('nom');
-            $table->string('description');
+            $table->string('nom')->unique() ;
             $table->timestamps();
         });
     }

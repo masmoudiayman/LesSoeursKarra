@@ -33,11 +33,17 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form id="quickForm">
+            {{--<form id="quickForm">--}}
+              {!!Form::open(['action'=>
+              'App\Http\Controllers\ArticleController@saveArticle','method'=> 'POST'
+              ])!!}
               <div class="card-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Nom</label>
-                  <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer nom article">
+                  {{-- <label for="exampleInputEmail1">Nom</label> --}}
+                  {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
+                  {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer nom article'])}}
+
+                  {{-- <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer nom article"> --}}
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Prix</label>
@@ -67,7 +73,8 @@
                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
                 <input type="submit" class="btn btn-success" value="Ajouter">
               </div>
-            </form>
+              {!!Form::close()!!}
+            {{--</form>--}}
           </div>
           <!-- /.card -->
           </div>
