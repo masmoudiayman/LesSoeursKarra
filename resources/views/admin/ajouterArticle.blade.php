@@ -34,34 +34,66 @@
             <!-- /.card-header -->
             <!-- form start -->
             {{--<form id="quickForm">--}}
+              @if (Session::has('status'))
+              <div class="alert alert-success">
+                {{Session::get('status')}}
+              </div>   
+              @endif
+
+             @if (count($errors) > 0)
+                  <div class="alert alert-danger" >
+                    
+                    <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{$error}}</li>
+                      @endforeach
+                  </div>
+                  </ul>
+                 
+             @endif
               {!!Form::open(['action'=>
               'App\Http\Controllers\ArticleController@saveArticle','method'=> 'POST'
               ])!!}
+              {{ csrf_field() }}
               <div class="card-body">
                 <div class="form-group">
                   {{-- <label for="exampleInputEmail1">Nom</label> --}}
-                  {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
+                  {{Form::label('','Nom',['for'=>'exampleInputEmail1'])}}
                   {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer nom article'])}}
+                 <div class="from-group">
+                  <label >Sous gamme</label>
 
+                  {{Form::select('id_sgam',$sousGammes,null,['placeholder'=>'select sous gamme article','class'=>'form-control select2'])}}
+                 </div>
                   {{-- <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer nom article"> --}}
+                
+                <div class="from-groupe">
+                  {{Form::label('','Description',['for'=>'exampleInputEmail1'])}}
+                  {{Form::text('description','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer description article'])}}
                 </div>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Prix</label>
-                  <input type="number" name="product_price" class="form-control" id="exampleInputEmail1" placeholder="Entrer prix article" min="1">
+                  {{-- <label for="exampleInputEmail1">Prix</label>
+                  <input type="number" name="product_price" class="form-control" id="exampleInputEmail1" placeholder="Entrer prix article" min="1"> --}}
+
+                  {{Form::label('','Prix',['for'=>'exampleInputEmail1'])}}
+                  {{Form::text('prix','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer prix article'])}}
                 </div>
                 <div class="form-group">
-                  <label>Gamme</label>
+                  {{-- <label>Gamme</label>
                   <select class="form-control select2" style="width: 100%;">
                     <option selected="selected">Fruit</option>
                     <option>Juice</option>
                     <option>Vegetable</option>
-                  </select>
+                  </select> --}}
+                  {{-- {{Form::select('nom',null,null,['placeholder'=>'choisir sous gamme','class'=>'form-control select2'])}} --}}
                 </div>
                 <label for="exampleInputFile">Image</label>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="exampleInputFile">
-                    <label class="custom-file-label" for="exampleInputFile">Choisir un fichier</label>
+                    {{Form::file('image',['class'=>'custom-file-input','id'=>'exampleInputFile'])}}
+                    {{Form::label('','Choisir un fichier',['class'=>'custom-file-label','for'=>'exampleInputFile'])}}
+                    {{-- <input type="file" class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Choisir un fichier</label> --}}
                   </div>
                   <div class="input-group-append">
                     <span class="input-group-text">Télécharger </span>
@@ -71,7 +103,9 @@
               <!-- /.card-body -->
               <div class="card-footer">
                 <!-- <button type="submit" class="btn btn-success">Submit</button> -->
-                <input type="submit" class="btn btn-success" value="Ajouter">
+                {{-- <input type="submit" class="btn btn-success" value="Ajouter"> --}}
+                {{Form::submit('Ajouter',['class'=>'btn btn-success'])}}
+
               </div>
               {!!Form::close()!!}
             {{--</form>--}}

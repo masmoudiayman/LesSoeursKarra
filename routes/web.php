@@ -40,6 +40,7 @@ use Illuminate\Support\Facades\Route;
 
 
  Route::post('/saveGamme',[GammeController::class,'saveGamme']);
+ Route::post('/saveSousGamme',[SousGammeController::class,'saveSousGamme']);
  Route::post('/saveArticle',[ArticleController::class,'saveArticle']);
 
 
@@ -47,6 +48,9 @@ use Illuminate\Support\Facades\Route;
 
  Route::get('/editGamme/{id}',[GammeController::class,'editGamme']);
  Route::post('/updateGamme',[GammeController::class,'updateGamme']);
+
+
+ Route::get('/deleteGamme/{id}',[GammeController::class,'deleteGamme']);
 
 
 

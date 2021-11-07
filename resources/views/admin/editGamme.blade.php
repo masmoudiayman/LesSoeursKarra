@@ -52,7 +52,7 @@
                 ])!!}
                 <div class="card-body">
                   <div class="form-group">
-                    {{Form::hidden($gamme->id,'')}}
+                    {{Form::hidden('id',$gamme->id)}}
 
                     {{-- <label for="exampleInputEmail1">Nom</label> --}}
                     {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}

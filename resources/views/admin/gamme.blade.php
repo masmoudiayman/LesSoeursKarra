@@ -31,6 +31,12 @@
               <div class="card-header">
                 <h3 class="card-title">Tous les gammes</h3>
               </div>
+
+              @if (Session::has('status'))
+              <div class="alert alert-success">
+                {{Session::get('status')}}
+              </div>   
+              @endif
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -48,7 +54,7 @@
                     <td>{{$gamme->nom}}</td>
                     <td>
                       <a href="{{url('/editGamme',$gamme->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                      <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
+                      <a href="{{url('/deleteGamme',$gamme->id)}}" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                     </td>
                   </tr>
                     @endforeach
@@ -86,19 +92,24 @@
 <script src="backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="backend/dist/js/adminlte.min.js"></script>
+<script src="backend/dist/js/bootbox.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 
+<!-- page script -->
+
 <script>
-    $(document).on("click", "#delete", function(e){
-    e.preventDefault();
-    var link = $(this).attr("href");
-    bootbox.confirm("Do you really want to delete this element ?", function(confirmed){
-      if (confirmed){
-          window.location.href = link;
-        };
-      });
+  $(document).on("click", "#delete", function(e){
+  e.preventDefault();
+  var link = $(this).attr("href");
+  bootbox.confirm("Voulez-vous vraiment supprimer cet élément ?", function(confirmed){
+    if (confirmed){
+        window.location.href = link;
+      };
     });
-  </script>
+  });
+</script>
+<!-- page script -->
   <!-- page script -->
   <script>
     $(function () {

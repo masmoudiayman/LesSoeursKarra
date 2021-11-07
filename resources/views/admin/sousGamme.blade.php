@@ -38,29 +38,22 @@
                   <tr>
                     <th>Num.</th>
                     <th>Nom</th>
+                    <th>Nom de la gamme</th>
                     <th>Les Actions</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
+                    @foreach ($sousGammes as $sg)
+                    <td>{{$sg->id}}</td>
+                    <td>{{$sg->nom}}</td>
+                    <td>{{$sg->sous_gammesName}}</td>
+
                     <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                      <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
+                      <a href="{{url('/editSousGamme',$sg->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                      <a href="{{url('/deleteSousGamme',$sg->id)}}" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                      <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
-                    </td>
+                    @endforeach
                   </tr>
                   </tbody>
                 </table>
@@ -95,6 +88,8 @@
 <script src="backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="backend/dist/js/adminlte.min.js"></script>
+<script src="backend/dist/js/bootbox.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 
 <script>

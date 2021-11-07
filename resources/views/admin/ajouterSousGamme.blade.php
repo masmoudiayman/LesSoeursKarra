@@ -33,11 +33,20 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              {{-- <form> --}}
+                {!!Form::open(['action'=>
+                'App\Http\Controllers\SousGammeController@saveSousGamme','method'=> 'POST','encypte'=>'multipart/form-data'])!!}
+                {{ csrf_field() }}
+
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Nom</label>
-                    <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer sous gamme">
+                    {{-- <label for="exampleInputEmail1">Nom</label> --}}
+                    {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
+                    {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme'])}}
+
+                    {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
+                    {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme'])}}
+                    {{-- <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer sous gamme"> --}}
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -45,7 +54,8 @@
                   <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                   <input type="submit" class="btn btn-primary" value="Ajouter" >
                 </div>
-              </form>
+                {{!!Form::close()!!}}
+              {{-- </form> --}}
             </div>
             <!-- /.card -->
             </div>

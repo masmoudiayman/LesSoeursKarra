@@ -31,49 +31,42 @@
             <div class="card-header">
               <h3 class="card-title">Tous les articles</h3>
             </div>
+
+            @if (Session::has('status'))
+              <div class="alert alert-success">
+                {{Session::get('status')}}
+              </div>   
+              @endif
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Num.</th>
-                  <th>Picture</th>
-                  <th>Description one</th>
-                  <th>Description Two</th>
+                  <th>Sous gamme</th>
+                  <th>Description </th>
+                  <th>Prix</th>
+                  <th>Image</th>
                   <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                  <td>1</td>
-                  <td>
-                    <img src="backend/dist/img/user2-160x160.jpg" style="height : 50px; width : 50px" class="img-circle elevation-2" alt="User Image">
-                  </td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>5</td>
+                  @foreach ($articles as $article)
+
+                  <td>{{$article->id}}</td>
+                  <td>{{$article->sous_gammesName}}</td>
+                  <td>{{$article->description}}</td>
+                  <td>{{$article->prix}}</td>
+                  <td><img src="/frontend/images/{{$article->image}}" width="65px" height="65px"></td>
+
                   <td>
                     <a href="#" class="btn btn-warning">Activate</a>
                     <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                     <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                   </td>
                 </tr>
-                <tr>
-                  <td>2</td>
-                  <td>
-                    <img src="backend/dist/img/user2-160x160.jpg" style="height : 50px; width : 50px" class="img-circle elevation-2" alt="User Image">
-                  </td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>5</td>
-                  <td>
-                    <a href="#" class="btn btn-success">Unactivate</a>
-                    <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                    <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
-                  </td>
-                </tr>
+                @endforeach
                 </tbody>
               </table>
             </div>
