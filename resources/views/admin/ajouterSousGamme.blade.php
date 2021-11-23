@@ -31,6 +31,24 @@
               <div class="card-header">
                 <h3 class="card-title">Ajouter sous gamme</small></h3>
               </div>
+
+              @if (Session::has('status'))
+              <div class="alert alert-success">
+                {{Session::get('status')}}
+              </div>   
+              @endif
+
+             @if (count($errors) > 0)
+                  <div class="alert alert-danger" >
+                    
+                    <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{$error}}</li>
+                      @endforeach
+                  </div>
+                  </ul>
+                 
+             @endif
               <!-- /.card-header -->
               <!-- form start -->
               {{-- <form> --}}
@@ -41,11 +59,11 @@
                 <div class="card-body">
                   <div class="form-group">
                     {{-- <label for="exampleInputEmail1">Nom</label> --}}
-                    {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
-                    {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme'])}}
+                    {{Form::label('','Gamme',['for'=>'exampleInputEmail1'])}}
+                    {{Form::select('id_gam',$gammes,null,['class'=>'form-control select2','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme article'])}}
 
                     {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
-                    {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme'])}}
+                    {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer sous gamme'])}}
                     {{-- <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer sous gamme"> --}}
                   </div>
                 </div>
@@ -54,7 +72,7 @@
                   <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                   <input type="submit" class="btn btn-primary" value="Ajouter" >
                 </div>
-                {{!!Form::close()!!}}
+                {!!Form::close()!!}
               {{-- </form> --}}
             </div>
             <!-- /.card -->

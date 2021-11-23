@@ -53,8 +53,8 @@
                       <a href="{{url('/editSousGamme',$sg->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                       <a href="{{url('/deleteSousGamme',$sg->id)}}" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                     </td>
-                    @endforeach
                   </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

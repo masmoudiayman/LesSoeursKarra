@@ -23,12 +23,12 @@ class SousGammeController extends Controller
 
     public function ajouterSousGamme()
     {
-        $sousgammes = Gamme::all();
+        $gammes= Gamme::all()->pluck('nom','nom');
 
-        return view('admin.ajouterSousGamme',compact('sousgammes'));
+        return view('admin.ajouterSousGamme',compact('gammes'));
     }
 
-    public function saveGamme(Request $request)
+    public function saveSousGamme(Request $request)
     {
         $this->validate($request,['id_gam' => 'required']);
         $this->validate($request,['nom' => 'required']);

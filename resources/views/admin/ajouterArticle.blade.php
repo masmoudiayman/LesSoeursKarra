@@ -52,25 +52,34 @@
                  
              @endif
               {!!Form::open(['action'=>
-              'App\Http\Controllers\ArticleController@saveArticle','method'=> 'POST'
-              ])!!}
+              'App\Http\Controllers\ArticleController@saveArticle','method'=> 'POST','enctype'=>'multipart/form-data'])!!}
               {{ csrf_field() }}
               <div class="card-body">
+
                 <div class="form-group">
                   {{-- <label for="exampleInputEmail1">Nom</label> --}}
                   {{Form::label('','Nom',['for'=>'exampleInputEmail1'])}}
                   {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer nom article'])}}
-                 <div class="from-group">
-                  <label >Sous gamme</label>
+                </div>
 
-                  {{Form::select('id_sgam',$sousGammes,null,['placeholder'=>'select sous gamme article','class'=>'form-control select2'])}}
+                 <div class="from-group">
+                  {{-- {{Form::label('','Sous gamme',['for'=>'exampleInputEmail1'])}}
+                  {{Form::select('id_sgam',$sousGammes,null,['placeholder'=>'select sous gamme article','class'=>'form-control select2'])}} --}}
+                  <div class="form-group">
+                    {{-- <label for="exampleInputEmail1">Nom</label> --}}
+                    {{Form::label('','Sous gamme',['for'=>'exampleInputEmail1'])}}
+                    {{Form::select('id_sgam',$sousGammes,null,['class'=>'form-control select2','id'=>'exampleInputEmail1','placeholder' =>'Entrer sous gamme article'])}}
+                  </div>
+  
                  </div>
                   {{-- <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer nom article"> --}}
                 
-                <div class="from-groupe">
-                  {{Form::label('','Description',['for'=>'exampleInputEmail1'])}}
-                  {{Form::text('description','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer description article'])}}
-                </div>
+                  <div class="form-group">
+                    {{-- <label for="exampleInputEmail1">Nom</label> --}}
+                    {{Form::label('','Description',['for'=>'exampleInputEmail1'])}}
+                    {{Form::text('description','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer description article'])}}
+                  </div>
+                
                 <div class="form-group">
                   {{-- <label for="exampleInputEmail1">Prix</label>
                   <input type="number" name="product_price" class="form-control" id="exampleInputEmail1" placeholder="Entrer prix article" min="1"> --}}
@@ -78,18 +87,20 @@
                   {{Form::label('','Prix',['for'=>'exampleInputEmail1'])}}
                   {{Form::text('prix','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer prix article'])}}
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   {{-- <label>Gamme</label>
                   <select class="form-control select2" style="width: 100%;">
                     <option selected="selected">Fruit</option>
                     <option>Juice</option>
                     <option>Vegetable</option>
-                  </select> --}}
-                  {{-- {{Form::select('nom',null,null,['placeholder'=>'choisir sous gamme','class'=>'form-control select2'])}} --}}
-                </div>
+                  </select> 
+                </div> --}}
+
+                <div class="form-group">
                 <label for="exampleInputFile">Image</label>
                 <div class="input-group">
                   <div class="custom-file">
+                    
                     {{Form::file('image',['class'=>'custom-file-input','id'=>'exampleInputFile'])}}
                     {{Form::label('','Choisir un fichier',['class'=>'custom-file-label','for'=>'exampleInputFile'])}}
                     {{-- <input type="file" class="custom-file-input" id="exampleInputFile">
@@ -99,6 +110,7 @@
                     <span class="input-group-text">Télécharger </span>
                   </div>
                 </div>
+              </div>
               </div>
               <!-- /.card-body -->
               <div class="card-footer">

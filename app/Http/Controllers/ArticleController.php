@@ -46,6 +46,7 @@ class ArticleController extends Controller
             $path = $request->file('image')->storeAs('public/image',$fileNameToStore);
         }else{
             $fileNameToStore='noimage.jpg';
+
         }
 
         $article =new Article();
