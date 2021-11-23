@@ -47,10 +47,16 @@ use Illuminate\Support\Facades\Route;
 
 
  Route::get('/editGamme/{id}',[GammeController::class,'editGamme']);
+ Route::get('/editSousGamme/{id}',[SousGammeController::class,'editSousGamme']);
+
  Route::post('/updateGamme',[GammeController::class,'updateGamme']);
+ Route::post('/updateSousGamme',[SousGammeController::class,'updateSousGamme']);
+
 
 
  Route::get('/deleteGamme/{id}',[GammeController::class,'deleteGamme']);
+ Route::get('/deleteSousGamme/{id}',[SousGammeController::class,'deleteSousGamme']);
+
 
 
 

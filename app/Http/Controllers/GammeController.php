@@ -50,5 +50,6 @@ class GammeController extends Controller
 
     public function deleteGamme($id){
         DB::table('gammes')->where('id','=',$id)->delete();
-        return redirect('/gamme')->with('status','La gamme est supprimée avec succès');        }
+        return redirect('/gamme')->with('status','La gamme est supprimée avec succès');       
+     }
 }

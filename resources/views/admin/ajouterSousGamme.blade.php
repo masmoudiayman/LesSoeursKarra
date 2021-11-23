@@ -58,10 +58,15 @@
 
                 <div class="card-body">
                   <div class="form-group">
-                    {{-- <label for="exampleInputEmail1">Nom</label> --}}
                     {{Form::label('','Gamme',['for'=>'exampleInputEmail1'])}}
-                    {{Form::select('id_gam',$gammes,null,['class'=>'form-control select2','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme article'])}}
-
+                  
+                    <select name='id_gam', class="form-control select2">
+                      <option disabled selected> Select gamme article</option>
+                    @foreach ($gammes as $gamme)
+                    <option value="{{$gamme->id}}">{{$gamme->nom}}</option>
+                    @endforeach
+                    </select>
+                  </div>
                     {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
                     {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer sous gamme'])}}
                     {{-- <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer sous gamme"> --}}

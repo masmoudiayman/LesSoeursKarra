@@ -20,7 +20,7 @@ class ArticleController extends Controller
 
     public function ajouterArticle()
     {
-        $sousGammes= Sous_gamme::all()->pluck('nom','nom');
+        $sousGammes= Sous_gamme::all();
         return view('admin.ajouterArticle',compact('sousGammes'));
     }
 

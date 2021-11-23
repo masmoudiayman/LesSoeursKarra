@@ -23,7 +23,7 @@ class SousGammeController extends Controller
 
     public function ajouterSousGamme()
     {
-        $gammes= Gamme::all()->pluck('nom','nom');
+        $gammes= Gamme::all();
 
         return view('admin.ajouterSousGamme',compact('gammes'));
     }
@@ -40,4 +40,27 @@ class SousGammeController extends Controller
 
         return back()->with('status','Le nom de la Sous gamme a été enregistré avec succès');
     }
+
+    public function editSousGamme($id)
+    {
+         $sousGamme =Sous_Gamme::find($id);
+
+         return view('admin.editSousGamme',compact('sousGamme'));
+    }
+
+    public function updateSousGamme(Request $request)
+    {
+      $nom=$request->input('nom');
+      $id=$request->input('id');
+
+      $sg=Sous_Gamme::find($id);
+      $sg->nom=$nom;
+      $sg->update();
+      return redirect('/sousGamme')->with('status','Le nom de la sous gamme est modifiée avec succès');
+    }
+
+    public function deleteSousGamme($id){
+        DB::table('sous_gammes')->where('id','=',$id)->delete();
+        return redirect('/sousGamme')->with('status','La sous gamme est supprimée avec succès');       
+     }
 }

@@ -31,6 +31,11 @@
               <div class="card-header">
                 <h3 class="card-title">Tous les sous gammes</h3>
               </div>
+              @if (Session::has('status'))
+              <div class="alert alert-success">
+                {{Session::get('status')}}
+              </div>   
+              @endif
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">

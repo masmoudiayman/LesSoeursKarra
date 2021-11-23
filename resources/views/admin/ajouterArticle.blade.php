@@ -62,23 +62,28 @@
                   {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer nom article'])}}
                 </div>
 
-                 <div class="from-group">
+                <div class="from-group">
                   {{-- {{Form::label('','Sous gamme',['for'=>'exampleInputEmail1'])}}
                   {{Form::select('id_sgam',$sousGammes,null,['placeholder'=>'select sous gamme article','class'=>'form-control select2'])}} --}}
-                  <div class="form-group">
+                <div class="form-group">
                     {{-- <label for="exampleInputEmail1">Nom</label> --}}
-                    {{Form::label('','Sous gamme',['for'=>'exampleInputEmail1'])}}
-                    {{Form::select('id_sgam',$sousGammes,null,['class'=>'form-control select2','id'=>'exampleInputEmail1','placeholder' =>'Entrer sous gamme article'])}}
-                  </div>
+                  {{Form::label('','Sous gamme',['for'=>'exampleInputEmail1'])}}
+                  <select name='id_sgam', class="form-control select2">
+                    <option disabled selected> Select sous gamme article</option>
+                  @foreach ($sousGammes as $sgamme)
+                  <option value="{{$sgamme->id}}">{{$sgamme->nom}}</option>
+                  @endforeach
+                  </select>
+                </div>
   
-                 </div>
+                </div>
                   {{-- <input type="text" name="product_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer nom article"> --}}
                 
-                  <div class="form-group">
+                <div class="form-group">
                     {{-- <label for="exampleInputEmail1">Nom</label> --}}
-                    {{Form::label('','Description',['for'=>'exampleInputEmail1'])}}
-                    {{Form::text('description','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer description article'])}}
-                  </div>
+                  {{Form::label('','Description',['for'=>'exampleInputEmail1'])}}
+                  {{Form::text('description','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer description article'])}}
+                </div>
                 
                 <div class="form-group">
                   {{-- <label for="exampleInputEmail1">Prix</label>
