@@ -48,14 +48,17 @@ use Illuminate\Support\Facades\Route;
 
  Route::get('/editGamme/{id}',[GammeController::class,'editGamme']);
  Route::get('/editSousGamme/{id}',[SousGammeController::class,'editSousGamme']);
+ Route::get('/editArticle/{id}',[ArticleController::class,'editArticle']);
 
  Route::post('/updateGamme',[GammeController::class,'updateGamme']);
  Route::post('/updateSousGamme',[SousGammeController::class,'updateSousGamme']);
+ Route::post('/updateArticle',[ArticleController::class,'updateArticle']);
 
 
 
  Route::get('/deleteGamme/{id}',[GammeController::class,'deleteGamme']);
  Route::get('/deleteSousGamme/{id}',[SousGammeController::class,'deleteSousGamme']);
+ Route::get('/deleteArticle/{id}',[ArticleController::class,'deleteArticle']);
 
 
 

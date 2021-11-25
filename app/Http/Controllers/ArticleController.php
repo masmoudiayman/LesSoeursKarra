@@ -30,7 +30,7 @@ class ArticleController extends Controller
                                   'id_sgam' => 'required',
                                   'description' => 'required',
                                   'prix' => 'required',
-                                  'image' => 'image|nullable|max:1999']);
+                                  'image' => 'image|nullable']);
         
         if($request->hasFile('image')){
             //1:get file name with exte
@@ -61,4 +61,41 @@ class ArticleController extends Controller
 
         
     }
+
+    public function editArticle($id)
+    {
+         $articles =Article::find($id);
+         $sousGammes= Sous_gamme::all();
+
+
+         return view('admin.editArticle',compact('articles','sousGammes'));
+    }
+
+    public function updateArticle(Request $request)
+    {
+      $nom=$request->input('nom');
+      $id_sgam=$request->input('id_sgam');
+      $description=$request->input('description');
+      $prix=$request->input('prix');
+      $prix=$request->input('image');
+
+
+      $id=$request->input('id');
+
+      $article=Article::find($id);
+
+      $article->nom=$nom;
+      $article->id_sgam=$id_sgam;
+      $article->description=$description;
+      $article->prix=$prix;
+      $article->update();
+      return redirect('/article')->with('status',' article est modifiée avec succès');
+    }
+
+    public function deleteArticle($id){
+        DB::table('articles')->where('id','=',$id)->delete();
+        return redirect('/article')->with('status','article est supprimée avec succès');       
+     }
+ 
+
 }

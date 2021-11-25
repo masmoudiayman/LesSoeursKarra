@@ -43,6 +43,7 @@
                 <thead>
                 <tr>
                   <th>Num.</th>
+                  <th>Nom </th>
                   <th>Sous gamme</th>
                   <th>Description </th>
                   <th>Prix</th>
@@ -55,15 +56,17 @@
                   @foreach ($articles as $article)
 
                   <td>{{$article->id}}</td>
+                  <td>{{$article->nom}}</td>
                   <td>{{$article->sous_gammesName}}</td>
                   <td>{{$article->description}}</td>
                   <td>{{$article->prix}}</td>
-                  <td><img src="/frontend/images/{{$article->image}}" width="65px" height="65px"></td>
+                  <td><img src="/storage/image/{{$article->image}}" 
+                    style ="width:80px;height=80px"></td>
+
 
                   <td>
-                    <a href="#" class="btn btn-warning">Activate</a>
-                    <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                    <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
+                    <a href="{{url('/editArticle',$article->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                    <a href="{{url('/deleteArticle',$article->id)}}" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                   </td>
                 </tr>
                 @endforeach
@@ -100,6 +103,8 @@
 <script src="backend/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- AdminLTE App -->
 <script src="backend/dist/js/adminlte.min.js"></script>
+<script src="backend/dist/js/bootbox.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 
 <script>
