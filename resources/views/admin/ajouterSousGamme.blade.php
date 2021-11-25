@@ -67,7 +67,7 @@
                     @endforeach
                     </select>
                   </div>
-                    {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
+                    {{Form::label('','Nom',['for'=>'exampleInputEmail1'])}}
                     {{Form::text('nom','',['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer sous gamme'])}}
                     {{-- <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer sous gamme"> --}}
                   </div>

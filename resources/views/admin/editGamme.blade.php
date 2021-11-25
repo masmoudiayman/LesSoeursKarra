@@ -55,7 +55,7 @@
                     {{Form::hidden('id',$gamme->id)}}
 
                     {{-- <label for="exampleInputEmail1">Nom</label> --}}
-                    {{Form::label('','nom',['for'=>'exampleInputEmail1'])}}
+                    {{Form::label('','Nom',['for'=>'exampleInputEmail1'])}}
                     {{Form::text('nom',$gamme->nom,['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer gamme'])}}
                     {{-- <input type="text" name="category_name" class="form-control" id="exampleInputEmail1" placeholder="Entrer gamme"> --}}
                   </div>
