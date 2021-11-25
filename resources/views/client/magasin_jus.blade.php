@@ -45,7 +45,7 @@
 
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>{{$article->prix}}</span></p>
+		    						<p class="price"><span>{{$article->prix}} DT</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">

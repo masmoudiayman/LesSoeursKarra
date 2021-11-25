@@ -95,28 +95,27 @@
 
 		<section class="ftco-section ftco-category ftco-no-pt">
 			<div class="container">
+				<div class="col-md-12 heading-section text-center ftco-animate">
+				<h2 class="mb-4">Nos Gammes</h2>
+			</div>
+
 				<div class="row">
 					<div class="col-md-8">
 						<div class="row">
 							<div class="col-md-6 order-md-last align-items-stretch d-flex">
-								<div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" >
-									<div class="text text-center">
-										<h2>Nos Gammes</h2>
-										<p><a href="#" class="btn btn-primary">Shop now</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-md-6">
 								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/jus.jpeg);">
 									<div class="text px-3 py-1">
 										<h2 class="mb-0"><a href="magasin_jus">Gamme Jus</a></h2>
 									</div>
 								</div>
-								<div  class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(frontend/images/cafe.jpeg);">
+							</div>
+							<div class="col-md-6">
+								<div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(frontend/images/cafe.jpeg);">
 									<div class="text px-3 py-1">
 										<h2 class="mb-0"><a href="magasin_café">Gamme Café et Thé</a></h2>
 									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -149,7 +148,7 @@
 					    			
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="product">
-    					<a href="#" class="img-prod"><img class="img-fluid" src="/storage/image/{{$article->image}}" alt="article" >
+    					<a href="#" class="img-prod"><img class="img-fluid" src="/storage/image/{{$article->image}}" alt="article" width="150px" height="150px" >
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3 text-center">
@@ -158,7 +157,7 @@
 
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>{{$article->prix}}</span></p>
+		    						<p class="price"><span>{{$article->prix}},000 DT</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -273,5 +272,7 @@
     </section>
 
     <hr>
+
+
 	@endsection
 		
