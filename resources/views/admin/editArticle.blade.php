@@ -57,6 +57,8 @@
               <div class="card-body">
 
                 <div class="form-group">
+                    {{Form::hidden('id',$articles->id)}}
+
                   {{-- <label for="exampleInputEmail1">Nom</label> --}}
                   {{Form::label('','Nom',['for'=>'exampleInputEmail1'])}}
                   {{Form::text('nom',$articles->nom,['class'=>'form-control','id'=>'exampleInputEmail1','placeholder' =>'Entrer nom article'])}}
