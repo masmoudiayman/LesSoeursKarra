@@ -118,6 +118,54 @@ class ArticleController extends Controller
         DB::table('articles')->where('id','=',$id)->delete();
         return redirect('/article')->with('status','article est supprimée avec succès');       
      }
+
+     public function sousGammeArticleJus($nom)
+     {
+        $articles = DB::table('articles')
+        ->join('sous_gammes','articles.id_sgam','=','sous_gammes.id')
+        ->select('articles.*','sous_gammes.nom as sous_gammeArticle')
+        ->get()->where('sous_gammeArticle',$nom );
+
+        $sousGammes = DB::table('sous_gammes')
+        ->join('gammes', 'sous_gammes.id_gam', '=', 'gammes.id')
+        ->select('sous_gammes.*','gammes.nom as sous_gammesName')
+        ->get()->where('sous_gammesName','Jus');
+
+         return view('client.magasin_jus',compact('articles','sousGammes'));
+
+     }
+
+     public function sousGammeArticleCafe($nom)
+     {
+        $articles = DB::table('articles')
+        ->join('sous_gammes','articles.id_sgam','=','sous_gammes.id')
+        ->select('articles.*','sous_gammes.nom as sous_gammeArticle')
+        ->get()->where('sous_gammeArticle',$nom );
+
+        $sousGammes = DB::table('sous_gammes')
+        ->join('gammes', 'sous_gammes.id_gam', '=', 'gammes.id')
+        ->select('sous_gammes.*','gammes.nom as sous_gammesName')
+        ->get()->where('sous_gammesName','Café et thé');
+
+         return view('client.magasin_café',compact('articles','sousGammes'));
+
+     }
+
+     public function sousGammeArticleSale($nom)
+     {
+        $articles = DB::table('articles')
+        ->join('sous_gammes','articles.id_sgam','=','sous_gammes.id')
+        ->select('articles.*','sous_gammes.nom as sous_gammeArticle')
+        ->get()->where('sous_gammeArticle',$nom );
+
+        $sousGammes = DB::table('sous_gammes')
+        ->join('gammes', 'sous_gammes.id_gam', '=', 'gammes.id')
+        ->select('sous_gammes.*','gammes.nom as sous_gammesName')
+        ->get()->where('sous_gammesName','Salé');
+
+         return view('client.magasin_salé',compact('articles','sousGammes'));
+
+     }
  
 
 }

@@ -17,14 +17,11 @@ class Client extends Model
         'id'=> false,
         'nom'=> false,
         'prenom'=>false,
-        'date_naissance'=>false,
         'email'=>false,
         'mdp'=>false,
         'pays'=>false,
-        'gouvernorat'=>false,
         'ville'=>false,
         'adresse' => false,
-        'code_postal' => false,
         'tel'=>false,
     ];
 }

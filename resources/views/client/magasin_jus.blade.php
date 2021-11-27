@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="hero-wrap hero-bread" style="background-image: url('frontend/images/bg_1.jpg');">
+    <div class="hero-wrap hero-bread" style="background-image: url('{{asset('frontend/images/bg_1.jpg')}}');">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
           <div class="col-md-9 ftco-animate text-center">
@@ -21,10 +21,10 @@
     		<div class="row justify-content-center">
     			<div class="col-md-10 mb-5 text-center">
     				<ul class="product-category">
-    					<li><a href="#" class="active">Tous</a></li>
+    					<li><a href="/magasin_jus" class="{{request()->is('magasin_jus') ? 'active' :'' }}">Tous</a></li>
 						@foreach ($sousGammes as $sousGamme)
 							
-    					<li><a href="#">{{$sousGamme->nom}}</a></li>
+    					<li><a href="{{url('sousGammeArticleJus/'.$sousGamme->nom)}}" class="{{request()->is('sousGammeArticleJus/'.$sousGamme->nom) ? 'active' :'' }}" > {{$sousGamme->nom}}</a></li>
     					
 						@endforeach
     				</ul>
@@ -45,7 +45,7 @@
 
     						<div class="d-flex">
     							<div class="pricing">
-		    						<p class="price"><span>{{$article->prix}} DT</span></p>
+		    						<p class="price"><span>{{$article->prix}},000 DT</span></p>
 		    					</div>
 	    					</div>
     						<div class="bottom-area d-flex px-3">
@@ -53,7 +53,7 @@
 	    							<a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
 	    								<span><i class="ion-ios-menu"></i></span>
 	    							</a>
-	    							<a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+	    							<a href="{{url('addToCart/'.$article->id)}}" class="buy-now d-flex justify-content-center align-items-center mx-1">
 	    								<span><i class="ion-ios-cart"></i></span>
 	    							</a>
 	    							<a href="#" class="heart d-flex justify-content-center align-items-center ">

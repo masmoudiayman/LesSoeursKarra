@@ -29,6 +29,9 @@ use Illuminate\Support\Facades\Route;
  Route::get('/commande',[CommandeController::class,'commande']);
  Route::get('/contacts',[ContactController::class,'contacts']);
  Route::get('/parametre',[ParametreController::class,'parametre']);
+ Route::get('/sousGammeArticleJus/{nom}',[ArticleController::class,'sousGammeArticleJus']);
+ Route::get('/sousGammeArticleCafe/{nom}',[ArticleController::class,'sousGammeArticleCafe']);
+ Route::get('/sousGammeArticleSale/{nom}',[ArticleController::class,'sousGammeArticleSale']);
 
 
 
@@ -64,9 +67,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
-
-
  Route::get('/',[indexController::class,'home']);
  Route::get('/magasin_jus',[indexController::class,'magasin_jus']);
  Route::get('/magasin_café',[indexController::class,'magasin_café']);
@@ -76,7 +76,14 @@ use Illuminate\Support\Facades\Route;
  Route::get('/contact',[indexController::class,'contact']);
  Route::get('/checkout',[indexController::class,'checkout']);
  Route::get('/login',[indexController::class,'login']);
+ Route::post('/accessAccount',[indexController::class,'accessAccount']);
  Route::get('/signup',[indexController::class,'signup']);
+ Route::post('/createAccount',[indexController::class,'createAccount']);
+ Route::get('/logout',[indexController::class,'logout']);
+ Route::get('/addToCart/{id}',[indexController::class,'addToCart']);
+ Route::post('/update_qty/{id}',[indexController::class,'update_qty']);
+ Route::get('/remove_from_cart/{id}',[indexController::class,'remove_from_cart']);
+
  
 
 

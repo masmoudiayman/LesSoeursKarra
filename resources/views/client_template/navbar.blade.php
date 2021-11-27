@@ -52,8 +52,13 @@
             </li>
 	          <li class="nav-item"><a href="{{url('/about')}}" class="nav-link">À propos</a></li>
 	          <li class="nav-item active"><a href="{{url('/contact')}}" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta cta-colored"><a href="{{url('/panier')}}" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-              <li class="nav-item "><a href="login" class="nav-link"><span class="fa fa-user"></span>Connexion</a></li>
+	          <li class="nav-item cta cta-colored"><a href="{{url('/panier')}}" class="nav-link"><span class="icon-shopping_cart"></span>[{{Session::has('cart') ? Session::get('cart')->totalQty : 0 }}]</a></li>
+
+            @if (Session::has('client'))
+              <li class="nav-item "><a href="{{url('/logout')}}" class="nav-link"><span class="fa fa-user"></span>Déconnexion</a></li>
+            @else
+              <li class="nav-item "><a href="{{url('/login')}}" class="nav-link"><span class="fa fa-user"></span>Connexion</a></li>
+            @endif
 
 
 	        </ul>

@@ -32,7 +32,9 @@
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('frontend/login/images/bg-01.jpg');">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form"  action="{{url('/accessAccount')}}" method="POST">
+					{{ csrf_field() }}
+
 					<a href="{{url('/')}}">
 
 					<span class="login100-form-title p-b-34 p-t-27">
@@ -40,13 +42,30 @@
 					</span>
 					</a>
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="username" placeholder="Nom">
+					@if (count($errors)>0)
+						     <div class="alert alert-danger">
+								 <ul>
+									 @foreach ($errors->all() as $error)
+										<li>{{$error}}</li> 
+									 @endforeach
+								 </ul>
+							 </div>
+							
+						@endif
+						@if (Session::has('status'))
+						    <div class="alert alert-danger">
+								{{Session::get('status')}}
+							</div>
+							
+						@endif
+
+					<div class="wrap-input100 validate-input" data-validate = "Entrer email">
+						<input class="input100" type="email" name="email" placeholder="Email">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="pass" placeholder="Mot de passe">
+					<div class="wrap-input100 validate-input" data-validate="Entrer mot de passe">
+						<input class="input100" type="password" name="mdp" placeholder="Mot de passe">
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 

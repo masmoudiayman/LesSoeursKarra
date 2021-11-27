@@ -16,16 +16,13 @@ class CreateClientsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nom');
-            $table->string('prenom'); 
-            $table->date('date_naissance');   
+            $table->string('prenom');   
             $table->string('email')->unique();
             $table->string('mdp');
             $table->string('pays');
-            $table->string('gouvernorat');
             $table->string('ville');
             $table->string('adresse'); 
-            $table->integer('code_postal'); 
-            $table->integer('tel');                  
+            $table->bigInteger('tel');                  
             $table->timestamps();
         });
     }
