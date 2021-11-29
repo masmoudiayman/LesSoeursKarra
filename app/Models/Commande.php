@@ -15,11 +15,12 @@ class Commande extends Model
     protected  $keytype ='string';
     protected  $attributes = [
         'id'=> false,
-        'user'=> false,
-        'date'=> false,
-        'etat'=>false,
-        'montant' => false,
+        'nom'=>false,
+        'pays'=>false,
+        'ville'=>false,
+        'adresse' => false,
         'methode_paiment' => false,
+        'panier' => false,
         'id_clt'=>false,
     ];
 }

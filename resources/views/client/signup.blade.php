@@ -68,25 +68,9 @@
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
-					
-
-					<div class="wrap-input100 validate-input" data-validate = "Entrer pays">
-						<input class="input100" type="text" name="pays" placeholder="pays">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Entrer ville">
-						<input class="input100" type="text" name="ville" placeholder="Ville">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate = "Entrer adresse">
-						<input class="input100" type="text" name="adresse" placeholder="Adresse">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Entrer téléphone">
-						<input class="input100" type="text" name="tel" placeholder="Téléphone">
+						<input class="input100" type="number" name="tel" placeholder="Téléphone">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 

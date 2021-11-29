@@ -19,9 +19,6 @@ class CreateClientsTable extends Migration
             $table->string('prenom');   
             $table->string('email')->unique();
             $table->string('mdp');
-            $table->string('pays');
-            $table->string('ville');
-            $table->string('adresse'); 
             $table->bigInteger('tel');                  
             $table->timestamps();
         });

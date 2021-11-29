@@ -15,11 +15,12 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('user');
-            $table->date('date');
-            $table->string('etat');
-            $table->float('montant');
+            $table->string('nom');
+            $table->string('pays');
+            $table->string('ville');
+            $table->string('adresse'); 
             $table->string('methode_paiment');
+            $table->mediumText('panier');
             $table->unsignedBigInteger('id_clt');
             $table->foreign('id_clt')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();

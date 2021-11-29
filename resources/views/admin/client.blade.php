@@ -38,30 +38,31 @@
                   <tr>
                     <th>Num.</th>
                     <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Téléphone</th>
+                    <th>Email</th>
+                    <th>Mot de passe</th>
                     <th>Les Actions</th>
                   </tr>
                   </thead>
                   <tbody>
                   <tr>
-                    <td>1</td>
-                    <td>Internet
-                      Explorer 4.0
-                    </td>
+                   @foreach ($clients as $client )
+                       
+
+                    <td>{{$client->id}}</td>
+                    <td>{{$client->nom}}</td>
+                    <td>{{$client->prenom}}</td>
+                    <td>{{$client->tel}}</td>
+                    <td>{{$client->email}}</td>
+                    <td>{{$client->mdp}}</td>
+
                     <td>
                       <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
                       <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                     </td>
                   </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Internet
-                      Explorer 5.0
-                    </td>
-                    <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                      <a href="#" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
-                    </td>
-                  </tr>
+                  @endforeach
                   </tbody>
                 </table>
               </div>

@@ -161,24 +161,18 @@ class indexController extends Controller
     {
         $this->validate($request,['nom'=>'required',
                                   'prenom' =>'required',
-                                  'pays' =>'required',
-                                  'ville' =>'required',
-                                  'adresse' =>'required',
                                   'tel' =>'required',
                                   'email' =>'email|required|unique:clients',
                                   'mdp' =>'required|min:6']);
         $client = new Client();
         $client->nom = $request->input('nom');
         $client->prenom = $request->input('prenom');
-        $client->pays = $request->input('pays');
-        $client->ville = $request->input('ville');
-        $client->adresse = $request->input('adresse');
         $client->tel = $request->input('tel');
         $client->email = $request->input('email');
         $client->mdp = bcrypt($request->input('mdp'));
 
         $client->save();
-        return back()->with('status','votre compte est crée avec succès');
+        return redirect('login')->with('status','votre compte est crée avec succès');
 
     }
     public function accessAccount(Request $request)

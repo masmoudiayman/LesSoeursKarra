@@ -19,9 +19,6 @@ class Client extends Model
         'prenom'=>false,
         'email'=>false,
         'mdp'=>false,
-        'pays'=>false,
-        'ville'=>false,
-        'adresse' => false,
         'tel'=>false,
     ];
 }

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
     public function client()
     {
-        return view('admin.client');
+        $clients=Client::all();
+      
+        return view('admin.client',compact('clients'));
     }
 }
